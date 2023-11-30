@@ -1,0 +1,12 @@
+.all_tables {
+    border-collapse: collapse;
+}
+.all_tables,tr,td,th {
+    border: 1px solid black;
+}
+.all_tables  tr {
+    height: 30px;
+}
+.all_tables td {
+    padding: 5px;
+}

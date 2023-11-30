@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calc</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="formulas">
+        <!-- <p>Cost of Equity Capital</p>
+        <p><span style="border-top: 1px solid black;">R</span> = R<sub>F</sub> + β (<span style="border-top: 1px solid black;">R</span><sub>M</sub> - R<sub>F</sub>)</p> -->
+        <table class="all_tables cost_of_equity_capital_table">
+            <tr>
+                <th colspan="2">
+                    <p>Cost of Equity Capital</p>
+                    <p><span style="border-top: 1px solid black;">R</span> = R<sub>F</sub> + β (<span style="border-top: 1px solid black;">R</span><sub>M</sub> - R<sub>F</sub>)</p>
+                </th>
+            </tr>
+            <tr>
+                <th>The risk-free rate,  R<sub>F</sub> (%)</th>
+                <td><input id="risk_free_rate_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>The company beta, β</th>
+                <td><input id="company_beta_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>The market risk premium, <span style="border-top: 1px solid black;">R</span><sub>M</sub> - R<sub>F</sub> (%)</th>
+                <td><input id="market_risk_premium_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Cost of Equity Capital, <span style="border-top: 1px solid black;">R</span> (%)</th>
+                <td><input id="cost_of_equity_capital_input" type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick=getCostOfEquityCapital()>Calculate</button>
+                    <button onclick=resetCostOfEquityCapital()>Reset</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table class="all_tables cost_of_debt">
+            <tr>
+                <th colspan="2">
+                    <p>Cost of debt</p>
+                    <p>r<sub>B</sub> * (1 - T<sub>c</sub>)</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Company's outstanding bonds, r<sub>B</sub> (%)</th>
+                <td><input id="company_outstanding_bonds_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Marginal tax rate, T<sub>c</sub> (%)</th>
+                <td><input id="marginal_tax_rate_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Cost of debt (%)</th>
+                <td><input id="cost_of_debt_input" type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick=getCostOfDebt()>Calculate</button>
+                    <button onclick=resetCostOfDebt()>Reset</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table class="all_tables wacc">
+            <tr>
+                <th colspan="2">
+                    <p>Weighted Average Cost of Capital (WACC)</p>
+                    <p>(S / (S+B)) * cost of equity capital + (B / (S+B)) * cost of debt</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Equity weight, (S / (S+B))</th>
+                <td><input id="equity_weight_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Debt weight, (B / (S+B))</th>
+                <td><input id="debt_weight_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>WACC (%)</th>
+                <td><input id="wacc_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getWACC()>Calculate</button>
+                <button onclick=resetWACC()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables future_value_interest_compounding">
+            <tr>
+                <th colspan="2">
+                    <p>Future Value</p>
+                    <p>FV<sub>T</sub> = PV<sub>0</sub>(1+r)<sup>T</sup></p>
+                </th>
+            </tr>
+            <tr>
+                <th>Present Value, PV<sub>0</sub></th>
+                <td><input id="present_value_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Time, T</th>
+                <td><input id="time_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Future Value, FV<sub>T</sub></th>
+                <td><input id="future_value_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getFutureValue()>Calculate</button>
+                <button onclick=resetFutureValue()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables present_value_interest_compounding">
+            <tr>
+                <th colspan="2">
+                    <p>Present Value</p>
+                    <p>PV<sub>0</sub> = FV<sub>T</sub> (1+r)<sup>-T</sup></p>
+                </th>
+            </tr>
+            <tr>
+                <th>Future Value, FV<sub>T</sub></th>
+                <td><input id="future_value_pv_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_pv_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Time, T</th>
+                <td><input id="time_pv_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Present Value, PV<sub>0</sub></th>
+                <td><input id="present_value_pv_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getPresentValue()>Calculate</button>
+                <button onclick=resetPresentValue()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables present_value_perpetuity">
+            <tr>
+                <th colspan="2">
+                    <p>Present Value of Perpetuity</p>
+                    <p>PV<sub>0</sub> = PMT<sub>∞</sub> (1/r)</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Cash Flows, PMT</th>
+                <td><input id="pmt_pv_perpetuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_pv_perpetuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Present Value of Perpetuity, PV<sub>0</sub></th>
+                <td><input id="pv_perpetuity_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getPresentValuePerpetuity()>Calculate</button>
+                <button onclick=resetPresentValuePerpetuity()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables present_value_growing_perpetuity">
+            <tr>
+                <th colspan="2">
+                    <p>Present Value of Growing Perpetuity</p>
+                    <p>PV<sub>0</sub> = PMT<sub>∞</sub> (1/(r-g))</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Cash Flows, PMT</th>
+                <td><input id="pmt_pv_growing_perpetuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_pv_growing_perpetuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Growth Rate, g (%)</th>
+                <td><input id="growth_pv_growing_perpetuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Present Value of Growing Perpetuity, PV<sub>0</sub></th>
+                <td><input id="pv_growing_perpetuity_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getPresentValueGrowingPerpetuity()>Calculate</button>
+                <button onclick=resetPresentValueGrowingPerpetuity()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables present_value_regular_annuity">
+            <tr>
+                <th colspan="2">
+                    <p>Present Value of Regular Annuity</p>
+                    <p>PV<sub>0</sub> = PMT * [ (1 - (1+r)<sup>-T</sup>) / r ]</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Cash Flows, PMT</th>
+                <td><input id="pmt_pv_regular_annuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_pv_regular_annuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Time, t </th>
+                <td><input id="time_pv_regular_annuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Present Value of Regular Annuity, PV<sub>0</sub></th>
+                <td><input id="pv_regular_annuity_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getPresentValueRegularAnuuity()>Calculate</button>
+                <button onclick=resetPresentValueRegularAnnuity()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables future_value_regular_annuity">
+            <tr>
+                <th colspan="2">
+                    <p>Future Value of Regular Annuity</p>
+                    <p>FV<sub>T</sub> = PMT * [ ((1+r)<sup>T</sup> - 1) / r ]</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Cash Flows, PMT</th>
+                <td><input id="pmt_fv_regular_annuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_fv_regular_annuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Time, t </th>
+                <td><input id="time_fv_regular_annuity_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Future Value of Regular Annuity, PV<sub>0</sub></th>
+                <td><input id="fv_regular_annuity_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getFutureValueRegularAnuuity()>Calculate</button>
+                <button onclick=resetFutureValueRegularAnnuity()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class="all_tables present_value_annuity_due">
+            <tr>
+                <th colspan="2">
+                    <p>Present Value of Annuity Due</p>
+                    <p>PV<sub>0</sub> = PMT * [ ((1-(1+r)<sup>-T</sup>) / r) (1+r) ]</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Cash Flows, PMT</th>
+                <td><input id="pmt_pv_annuity_due_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_pv_annuity_due_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Time, t </th>
+                <td><input id="time_pv_annuity_due_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Present Value of Annuity Due, PV<sub>0</sub></th>
+                <td><input id="pv_annuity_due_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getPresentValueAnuuityDue()>Calculate</button>
+                <button onclick=resetPresntValueAnnuityDue()>Reset</button>
+            </td>
+        </table>
+        <br/>
+        <table class = "all_tables future_value_annuity_due">
+            <tr>
+                <th colspan="2">
+                    <p>Future Value of Annuity Due</p>
+                    <p>FV<sub>T</sub> = PMT * [ ( ((1+r)<sup>T</sup> - 1) / r ) (1+r) ]</p>
+                </th>
+            </tr>
+            <tr>
+                <th>Cash Flows, PMT</th>
+                <td><input id="pmt_fv_annuity_due_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Rate, r (%)</th>
+                <td><input id="rate_fv_annuity_due_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Time, t </th>
+                <td><input id="time_fv_annuity_due_input" type="text"></td>
+            </tr>
+            <tr>
+                <th>Future Value of Annuity Due, PV<sub>0</sub></th>
+                <td><input id="fv_annuity_due_input" type="text"></td>
+            </tr>
+            <td colspan="2">
+                <button onclick=getFutureValueAnuuityDue()>Calculate</button>
+                <button onclick=resetFutureValueAnnuityDue()>Reset</button>
+            </td>
+        </table>
+
+        <table class="all_tables net_present_value">
+            
+        </table>
+    </div>
+</body>
+</html>
