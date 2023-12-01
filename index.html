@@ -86,7 +86,7 @@
           <th colspan="2">
             <p>Weighted Average Cost of Capital (WACC)</p>
             <p>
-              (S / (S+B)) * cost of equity capital + (B / (S+B)) * cost of debt
+              (S / (S+B)) * <span class="sub_formula">cost of equity capital</span> + (B / (S+B)) * <span class="sub_formula">cost of debt</span>
             </p>
           </th>
         </tr>
@@ -128,7 +128,7 @@
           <td><input id="time_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Future Value, FV<sub>T</sub></th>
+          <th>Future Value, FV<sub>T</sub> ($)</th>
           <td><input id="future_value_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -157,7 +157,7 @@
           <td><input id="time_pv_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Present Value, PV<sub>0</sub></th>
+          <th>Present Value, PV<sub>0</sub> ($)</th>
           <td><input id="present_value_pv_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -182,7 +182,7 @@
           <td><input id="rate_pv_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Present Value of Perpetuity, PV<sub>0</sub></th>
+          <th>Present Value of Perpetuity, PV<sub>0</sub> ($)</th>
           <td><input id="pv_perpetuity_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -211,7 +211,7 @@
           <td><input id="growth_pv_growing_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Present Value of Growing Perpetuity, PV<sub>0</sub></th>
+          <th>Present Value of Growing Perpetuity, PV<sub>0</sub> ($)</th>
           <td><input id="pv_growing_perpetuity_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -242,7 +242,7 @@
           <td><input id="time_pv_regular_annuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Present Value of Regular Annuity, PV<sub>0</sub></th>
+          <th>Present Value of Regular Annuity, PV<sub>0</sub> ($)</th>
           <td><input id="pv_regular_annuity_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -271,7 +271,7 @@
           <td><input id="time_fv_regular_annuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Future Value of Regular Annuity, PV<sub>0</sub></th>
+          <th>Future Value of Regular Annuity, PV<sub>0</sub> ($)</th>
           <td><input id="fv_regular_annuity_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -300,7 +300,7 @@
           <td><input id="time_pv_annuity_due_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Present Value of Annuity Due, PV<sub>0</sub></th>
+          <th>Present Value of Annuity Due, PV<sub>0</sub> ($)</th>
           <td><input id="pv_annuity_due_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -331,7 +331,7 @@
           <td><input id="time_fv_annuity_due_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Future Value of Annuity Due, PV<sub>0</sub></th>
+          <th>Future Value of Annuity Due, PV<sub>0</sub> ($)</th>
           <td><input id="fv_annuity_due_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -345,7 +345,7 @@
           <th colspan="2">
             <p>Price of Annual Coupon Bond</p>
             <p>
-              P<sub>bond</sub> = C * PVIFA<sub>kd, n</sub> + FaceValue/(1+kd)^n
+              P<sub>bond</sub> = C * <span class="sub_formula">PVIFA<sub>k<sub>d</sub>, n</sub></span> + FaceValue / (1+k<sub>d</sub>)<sup>n</sup>
             </p>
           </th>
         </tr>
@@ -376,7 +376,7 @@
         </tr> -->
 
         <tr>
-          <th>Bond Price, P<sub>bond</sub></th>
+          <th>Bond Price, P<sub>bond</sub> ($)</th>
           <td><input id="annual_bondPrice_input" type="text" /></td>
         </tr>
         <td colspan="2">
@@ -390,8 +390,8 @@
           <th colspan="2">
             <p>Price of Semi Annual Coupon Bond</p>
             <p>
-              P<sub>bond</sub> = C/2 * PVIFA<sub>kd/2, 2n</sub> +
-              FaceValue/(1+(kd/2))^2n
+              P<sub>bond</sub> = C/2 * <span class="sub_formula">PVIFA<sub>k<sub>d</sub>/2, 2n</sub></span> +
+              FaceValue / (1+(k<sub>d</sub>/2))<sup>2n</sup>
             </p>
           </th>
         </tr>
@@ -413,7 +413,7 @@
           <td><input id="semi_annual_numberOfPeriods_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Bond Price, P<sub>bond</sub></th>
+          <th>Bond Price, P<sub>bond</sub> ($)</th>
           <td><input id="semi_annual_bondPrice_input" type="text" /></td>
         </tr>
         <td colspan="2">
