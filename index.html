@@ -18,7 +18,7 @@
             <p>Cost of Equity Capital</p>
             <p>
               <span style="border-top: 1px solid black">R</span> = R<sub>F</sub>
-              + β (<span style="border-top: 1px solid black">R</span
+              + β<sub>i</sub> (<span style="border-top: 1px solid black">R</span
               ><sub>M</sub> - R<sub>F</sub>)
             </p>
           </th>
@@ -66,7 +66,13 @@
           <td><input id="company_outstanding_bonds_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Marginal tax rate, T<sub>c</sub> (%)</th>
+          <th>
+            Marginal tax rate, T<sub>c</sub> (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide T<sub>c</sub> by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="marginal_tax_rate_input" type="text" /></td>
         </tr>
         <tr>
@@ -86,16 +92,37 @@
           <th colspan="2">
             <p>Weighted Average Cost of Capital (WACC)</p>
             <p>
-              (S / (S+B)) * <span class="sub_formula">cost of equity capital</span> + (B / (S+B)) * <span class="sub_formula">cost of debt</span>
+              (S / (S+B)) *
+              <span class="sub_formula">cost of equity capital</span> + (B /
+              (S+B)) * <span class="sub_formula">cost of debt</span>
+            </p>
+            <p>
+              (S / (S+B)) *
+              <span class="sub_formula">r<sub>s</sub></span> + (B / (S+B)) *
+              <span class="sub_formula">r<sub>b</sub> * (1-T<sub>c</sub>)</span>
             </p>
           </th>
         </tr>
         <tr>
-          <th>Equity weight, (S / (S+B))</th>
+          <th>
+            Equity weight, (S / (S+B))
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide Equity Weight (%) by 100 here as well as in formula
+              application.
+            </span>
+          </th>
           <td><input id="equity_weight_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Debt weight, (B / (S+B))</th>
+          <th>
+            Debt weight, (B / (S+B))
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide Debt Weight (%) by 100 here as well as in formula
+              application.
+            </span>
+          </th>
           <td><input id="debt_weight_input" type="text" /></td>
         </tr>
         <tr>
@@ -120,7 +147,13 @@
           <td><input id="present_value_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_input" type="text" /></td>
         </tr>
         <tr>
@@ -149,7 +182,13 @@
           <td><input id="future_value_pv_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_pv_input" type="text" /></td>
         </tr>
         <tr>
@@ -170,7 +209,7 @@
         <tr>
           <th colspan="2">
             <p>Present Value of Perpetuity</p>
-            <p>PV<sub>0</sub> = PMT<sub>∞</sub> (1/r)</p>
+            <p>PV<sub>0</sub> = PMT (1/r)</p>
           </th>
         </tr>
         <tr>
@@ -178,7 +217,13 @@
           <td><input id="pmt_pv_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_pv_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
@@ -195,7 +240,7 @@
         <tr>
           <th colspan="2">
             <p>Present Value of Growing Perpetuity</p>
-            <p>PV<sub>0</sub> = PMT<sub>∞</sub> (1/(r-g))</p>
+            <p>PV<sub>0</sub> = PMT (1/(r-g))</p>
           </th>
         </tr>
         <tr>
@@ -203,11 +248,23 @@
           <td><input id="pmt_pv_growing_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_pv_growing_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Growth Rate, g (%)</th>
+          <th>
+            Growth Rate, g (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide g by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="growth_pv_growing_perpetuity_input" type="text" /></td>
         </tr>
         <tr>
@@ -227,6 +284,7 @@
           <th colspan="2">
             <p>Present Value of Regular Annuity</p>
             <p>PV<sub>0</sub> = PMT * [ (1 - (1+r)<sup>-T</sup>) / r ]</p>
+            <p>PV<sub>0</sub> = PMT * [PVIFA <sub>r,T</sub>]</p>
           </th>
         </tr>
         <tr>
@@ -234,7 +292,13 @@
           <td><input id="pmt_pv_regular_annuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_pv_regular_annuity_input" type="text" /></td>
         </tr>
         <tr>
@@ -256,6 +320,7 @@
           <th colspan="2">
             <p>Future Value of Regular Annuity</p>
             <p>FV<sub>T</sub> = PMT * [ ((1+r)<sup>T</sup> - 1) / r ]</p>
+            <p>FV<sub>T</sub> = PMT * [FVIFA <sub>r,T</sub>]</p>
           </th>
         </tr>
         <tr>
@@ -263,7 +328,13 @@
           <td><input id="pmt_fv_regular_annuity_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_fv_regular_annuity_input" type="text" /></td>
         </tr>
         <tr>
@@ -285,6 +356,7 @@
           <th colspan="2">
             <p>Present Value of Annuity Due</p>
             <p>PV<sub>0</sub> = PMT * [ ((1-(1+r)<sup>-T</sup>) / r) (1+r) ]</p>
+            <p>PV<sub>0</sub> = PMT * [PVIFAD <sub>r,T</sub>]</p>
           </th>
         </tr>
         <tr>
@@ -292,7 +364,13 @@
           <td><input id="pmt_pv_annuity_due_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_pv_annuity_due_input" type="text" /></td>
         </tr>
         <tr>
@@ -316,6 +394,7 @@
             <p>
               FV<sub>T</sub> = PMT * [ ( ((1+r)<sup>T</sup> - 1) / r ) (1+r) ]
             </p>
+            <p>FV<sub>T</sub> = PMT * [FVIFAD<sub>r,T</sub>]</p>
           </th>
         </tr>
         <tr>
@@ -323,7 +402,13 @@
           <td><input id="pmt_fv_annuity_due_input" type="text" /></td>
         </tr>
         <tr>
-          <th>Rate, r (%)</th>
+          <th>
+            Rate, r (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide r by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="rate_fv_annuity_due_input" type="text" /></td>
         </tr>
         <tr>
@@ -345,13 +430,21 @@
           <th colspan="2">
             <p>Price of Annual Coupon Bond</p>
             <p>
-              P<sub>bond</sub> = C * <span class="sub_formula">PVIFA<sub>k<sub>d</sub>, n</sub></span> + FaceValue / (1+k<sub>d</sub>)<sup>n</sup>
+              P<sub>bond</sub> = C *
+              <span class="sub_formula">PVIFA<sub>k<sub>d</sub>, n</sub></span>
+              + FaceValue / (1+k<sub>d</sub>)<sup>n</sup>
             </p>
           </th>
         </tr>
 
         <tr>
-          <th>Coupon Rate (%)</th>
+          <th>
+            Coupon Rate (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide coupon rate by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="annual_coupon_rate_input" type="text" /></td>
         </tr>
 
@@ -361,7 +454,13 @@
         </tr>
 
         <tr>
-          <th>YTM, k<sub>d</sub> (%)</th>
+          <th>
+            YTM, k<sub>d</sub> (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide k<sub>d</sub> by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="annual_ytm_input" type="text" /></td>
         </tr>
 
@@ -390,13 +489,22 @@
           <th colspan="2">
             <p>Price of Semi Annual Coupon Bond</p>
             <p>
-              P<sub>bond</sub> = C/2 * <span class="sub_formula">PVIFA<sub>k<sub>d</sub>/2, 2n</sub></span> +
-              FaceValue / (1+(k<sub>d</sub>/2))<sup>2n</sup>
+              P<sub>bond</sub> = C/2 *
+              <span class="sub_formula"
+                >PVIFA<sub> 2n,k<sub>d</sub>/2</sub></span
+              >
+              + FaceValue / (1+(k<sub>d</sub>/2))<sup>2n</sup>
             </p>
           </th>
         </tr>
         <tr>
-          <th>Coupon Rate (%)</th>
+          <th>
+            Coupon Rate (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide coupon rate by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="semi_annual_coupon_rate_input" type="text" /></td>
         </tr>
         <tr>
@@ -405,7 +513,13 @@
         </tr>
 
         <tr>
-          <th>YTM, k<sub>d</sub> (%)</th>
+          <th>
+            YTM, k<sub>d</sub> (%)
+            <br />
+            <span style="font-size: 0.7em; color: blue; display: block">
+              Note: divide k<sub>d</sub> by 100 in formula application NOT here.
+            </span>
+          </th>
           <td><input id="semi_annual_ytm_input" type="text" /></td>
         </tr>
         <tr>
