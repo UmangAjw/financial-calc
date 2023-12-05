@@ -15,7 +15,7 @@ const getCostOfEquityCapital = () => {
   cost_of_equity_capital_ele.value = (
     risk_free_rate +
     company_beta * market_risk_premium
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetCostOfEquityCapital = () => {
@@ -53,7 +53,7 @@ const getCostOfDebt = () => {
   cost_of_debt_ele.value = (
     company_outstanding_bonds *
     (1 - marginal_tax_rate / 100)
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetCostOfDebt = () => {
@@ -85,7 +85,7 @@ const getWACC = () => {
   wacc_ele.value = (
     equity_weight * cost_of_equity_capital_ele.value +
     debt_weight * cost_of_debt_ele.value
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetWACC = () => {
@@ -107,9 +107,7 @@ const getFutureValue = () => {
   let rate = parseFloat(rate_ele.value);
   let time = parseFloat(time_ele.value);
 
-  future_value_input.value = (present_value * (1 + rate / 100) ** time).toFixed(
-    2
-  );
+  future_value_input.value = (present_value * (1 + rate / 100) ** time).toFixed(4);
 };
 
 const resetFutureValue = () => {
@@ -136,7 +134,7 @@ const getPresentValue = () => {
   present_value_pv_input.value = (
     future_value_pv *
     (1 + rate_pv / 100) ** -time_pv
-  ).toFixed(2);
+  ).toFixed(4);
 };
 const resetPresentValue = () => {
   let future_value_pv_ele = document.getElementById("future_value_pv_input");
@@ -163,7 +161,7 @@ const getPresentValuePerpetuity = () => {
   pv_perpetuity_input.value = (
     pmt_pv_perpetuity *
     (1 / (rate_pv_perpetuity / 100))
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetPresentValuePerpetuity = () => {
@@ -205,7 +203,7 @@ const getPresentValueGrowingPerpetuity = () => {
     pmt_pv_growing_perpetuity *
     (1 /
       (rate_pv_growing_perpetuity / 100 - growth_pv_growing_perpetuity / 100))
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetPresentValueGrowingPerpetuity = () => {
@@ -247,7 +245,7 @@ const getPresentValueRegularAnuuity = () => {
     pmt_pv_regular_annuity *
     ((1 - (1 + rate_pv_regular_annuity / 100) ** -time_pv_regular_annuity) /
       (rate_pv_regular_annuity / 100))
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetPresentValueRegularAnnuity = () => {
@@ -289,7 +287,7 @@ const getFutureValueRegularAnuuity = () => {
     pmt_fv_regular_annuity *
     (((1 + rate_fv_regular_annuity / 100) ** time_fv_regular_annuity - 1) /
       (rate_fv_regular_annuity / 100))
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetFutureValueRegularAnnuity = () => {
@@ -332,7 +330,7 @@ const getPresentValueAnuuityDue = () => {
     (((1 - (1 + rate_pv_annuity_due / 100) ** -time_pv_annuity_due) /
       (rate_pv_annuity_due / 100)) *
       (1 + rate_pv_annuity_due / 100))
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetPresntValueAnnuityDue = () => {
@@ -373,7 +371,7 @@ const getFutureValueAnuuityDue = () => {
     ((((1 + rate_fv_annuity_due / 100) ** time_fv_annuity_due - 1) /
       (rate_fv_annuity_due / 100)) *
       (1 + rate_fv_annuity_due / 100))
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetFutureValueAnnuityDue = () => {
@@ -416,7 +414,7 @@ const getBondPrice = () => {
       annual_facevalue *
       pv_regular_annuity_input.value +
     annual_facevalue / (1 + annual_ytm / 100) ** annual_numberOfPeriods
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetBondPrice = () => {
@@ -462,7 +460,7 @@ const getSemiBondPrice = () => {
       pv_regular_annuity_input.value +
     semi_annual_facevalue /
       (1 + semi_annual_ytm / 100) ** semi_annual_numberOfPeriods
-  ).toFixed(2);
+  ).toFixed(4);
 };
 
 const resetSemiBondPrice = () => {
